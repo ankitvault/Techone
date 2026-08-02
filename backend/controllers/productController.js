@@ -25,12 +25,24 @@ const getProductById = async (req, res) => {
 
 const createProduct = async (req, res) => {
   try {
-    const { name, description, price, category, stock } = req.body;
-    let imageUrl = '';
+    const { name, description, price, category, stock, imageUrl: bodyImageUrl } = req.body;
+    let imageUrl = bodyImageUrl || '';
+
     if (req.file) {
+      const apiKey = process.env.CLOUDINARY_API_KEY;
+      if (!apiKey || apiKey === 'your_api_key' || apiKey.includes('your_')) {
+        return res.status(400).json({
+          message: 'Cloudinary API Key is not configured on your server environment (Render). Please set valid CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET in Render Environment Variables, or provide a direct Image URL.'
+        });
+      }
       const result = await cloudinary.uploader.upload(req.file.path);
       imageUrl = result.secure_url;
     }
+
+    if (!imageUrl) {
+      return res.status(400).json({ message: 'Please upload an image file or provide a direct Image URL.' });
+    }
+
     const product = new Product({
       name, description, price, category, stock, imageUrl
     });
@@ -43,7 +55,7 @@ const createProduct = async (req, res) => {
 
 const updateProduct = async (req, res) => {
   try {
-    const { name, description, price, category, stock } = req.body;
+    const { name, description, price, category, stock, imageUrl: bodyImageUrl } = req.body;
     const product = await Product.findById(req.params.id);
     if (product) {
       product.name = name || product.name;
@@ -52,7 +64,17 @@ const updateProduct = async (req, res) => {
       product.category = category || product.category;
       product.stock = stock || product.stock;
 
+      if (bodyImageUrl) {
+        product.imageUrl = bodyImageUrl;
+      }
+
       if (req.file) {
+        const apiKey = process.env.CLOUDINARY_API_KEY;
+        if (!apiKey || apiKey === 'your_api_key' || apiKey.includes('your_')) {
+          return res.status(400).json({
+            message: 'Cloudinary API Key is not configured on your server environment (Render). Please set valid Cloudinary API keys or provide a direct Image URL.'
+          });
+        }
         const result = await cloudinary.uploader.upload(req.file.path);
         product.imageUrl = result.secure_url;
       }
