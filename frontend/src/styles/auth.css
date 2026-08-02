@@ -6,18 +6,19 @@
 }
 
 .auth-form {
-  background: #18181b;
+  background: var(--card-bg);
   padding: 40px;
   border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 40px var(--shadow-large);
   width: 100%;
   max-width: 420px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
   position: relative;
   overflow: hidden;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .auth-form::before {
@@ -39,17 +40,18 @@
 .auth-form h2 {
   text-align: center;
   font-size: 2rem;
-  color: #fff;
+  color: var(--text-color);
   margin-bottom: 10px;
+  transition: color 0.3s ease;
 }
 
 .auth-form input {
   padding: 15px;
-  background: #09090b;
-  border: 1px solid #27272a;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
   border-radius: 8px;
   font-size: 15px;
-  color: #fff;
+  color: var(--input-text);
   outline: none;
   transition: all 0.3s ease;
 }
@@ -62,7 +64,8 @@
 .auth-form p {
   text-align: center;
   margin-top: 15px;
-  color: #a1a1aa;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
 }
 
 .auth-form a {

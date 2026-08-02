@@ -1,3 +1,65 @@
+:root {
+  --bg-color: #09090b;
+  --text-color: #fafafa;
+  --text-muted: #a1a1aa;
+  --card-bg: #18181b;
+  --card-border: rgba(255, 255, 255, 0.05);
+  --input-bg: #09090b;
+  --input-border: #27272a;
+  --input-text: #fff;
+  --navbar-bg: rgba(9, 9, 11, 0.8);
+  --navbar-border: rgba(255, 255, 255, 0.05);
+  --navbar-shadow: rgba(0, 0, 0, 0.5);
+  --heading-gradient-from: #ffffff;
+  --heading-gradient-to: #a1a1aa;
+  --hero-bg: radial-gradient(circle at top right, rgba(249, 115, 22, 0.2), transparent 60%), linear-gradient(135deg, #18181b 0%, #09090b 100%);
+  --hero-text: #ffffff;
+  --hero-muted: #d4d4d8;
+  --shadow-main: rgba(0, 0, 0, 0.3);
+  --shadow-large: rgba(0, 0, 0, 0.5);
+  --scrollbar-track: #09090b;
+  --scrollbar-thumb: #27272a;
+  --scrollbar-thumb-hover: #3f3f46;
+  --qty-btn-bg: #27272a;
+  --qty-btn-border: #3f3f46;
+  --qty-btn-text: #fff;
+  --remove-btn-bg: rgba(239, 68, 68, 0.1);
+  --remove-btn-border: rgba(239, 68, 68, 0.3);
+  --remove-btn-text: #ef4444;
+  --theme-btn-hover: rgba(255, 255, 255, 0.1);
+}
+
+.light-mode {
+  --bg-color: #f4f4f5;
+  --text-color: #09090b;
+  --text-muted: #71717a;
+  --card-bg: #ffffff;
+  --card-border: rgba(9, 9, 11, 0.08);
+  --input-bg: #fafafa;
+  --input-border: #e4e4e7;
+  --input-text: #09090b;
+  --navbar-bg: rgba(255, 255, 255, 0.85);
+  --navbar-border: rgba(9, 9, 11, 0.08);
+  --navbar-shadow: rgba(9, 9, 11, 0.05);
+  --heading-gradient-from: #09090b;
+  --heading-gradient-to: #71717a;
+  --hero-bg: radial-gradient(circle at top right, rgba(249, 115, 22, 0.15), transparent 60%), linear-gradient(135deg, #ffffff 0%, #f4f4f5 100%);
+  --hero-text: #09090b;
+  --hero-muted: #3f3f46;
+  --shadow-main: rgba(9, 9, 11, 0.05);
+  --shadow-large: rgba(9, 9, 11, 0.1);
+  --scrollbar-track: #f4f4f5;
+  --scrollbar-thumb: #d4d4d8;
+  --scrollbar-thumb-hover: #a1a1aa;
+  --qty-btn-bg: #e4e4e7;
+  --qty-btn-border: #d4d4d8;
+  --qty-btn-text: #09090b;
+  --remove-btn-bg: rgba(239, 68, 68, 0.08);
+  --remove-btn-border: rgba(239, 68, 68, 0.2);
+  --remove-btn-text: #dc2626;
+  --theme-btn-hover: rgba(9, 9, 11, 0.08);
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 * {
@@ -8,10 +70,11 @@
 }
 
 body {
-  background-color: #09090b;
-  color: #fafafa;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .main-content {
@@ -63,11 +126,12 @@ h1, h2, h3, h4 {
   font-weight: 700;
   letter-spacing: -0.5px;
   margin-bottom: 20px;
+  transition: color 0.3s ease;
 }
 
 h2 {
   font-size: 2.2rem;
-  background: linear-gradient(to right, #ffffff, #a1a1aa);
+  background: linear-gradient(to right, var(--heading-gradient-from), var(--heading-gradient-to));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -83,12 +147,14 @@ h2 {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #09090b; 
+  background: var(--scrollbar-track); 
+  transition: background-color 0.3s ease;
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a; 
+  background: var(--scrollbar-thumb); 
   border-radius: 10px;
+  transition: background-color 0.3s ease;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46; 
+  background: var(--scrollbar-thumb-hover); 
 }

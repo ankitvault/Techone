@@ -19,12 +19,12 @@
 .cart-item {
   display: flex;
   align-items: center;
-  background: #18181b;
+  background: var(--card-bg);
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 20px var(--shadow-main);
+  border: 1px solid var(--card-border);
+  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cart-item:hover {
@@ -57,9 +57,9 @@
 }
 
 .qty-controls button {
-  background: #27272a;
-  color: #fff;
-  border: 1px solid #3f3f46;
+  background: var(--qty-btn-bg);
+  color: var(--qty-btn-text);
+  border: 1px solid var(--qty-btn-border);
   width: 32px;
   height: 32px;
   display: flex;
@@ -67,12 +67,13 @@
   justify-content: center;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .qty-controls button:hover {
   background: #f97316;
   border-color: #f97316;
+  color: #fff;
 }
 
 .qty-controls span {
@@ -81,15 +82,15 @@
 }
 
 .btn-remove {
-  background: rgba(239, 68, 68, 0.1);
-  color: #ef4444;
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: var(--remove-btn-bg);
+  color: var(--remove-btn-text);
+  border: 1px solid var(--remove-btn-border);
   padding: 8px 16px;
   border-radius: 6px;
   cursor: pointer;
   font-family: inherit;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .btn-remove:hover {
@@ -99,21 +100,23 @@
 
 .cart-summary {
   flex: 1;
-  background: #18181b;
+  background: var(--card-bg);
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px var(--shadow-main);
+  border: 1px solid var(--card-border);
   height: fit-content;
   position: sticky;
   top: 100px;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cart-summary h3 {
   font-size: 1.8rem;
   margin-bottom: 25px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--card-border);
   padding-bottom: 15px;
+  transition: border-color 0.3s ease;
 }
 
 .btn-checkout {
@@ -125,12 +128,13 @@
 
 /* Checkout Page Additions */
 .checkout-content {
-  background: #18181b;
+  background: var(--card-bg);
   padding: 40px;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
   max-width: 600px;
   margin: 0 auto;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .shipping-form {
@@ -141,23 +145,26 @@
 
 .shipping-form input {
   padding: 15px;
-  background: #09090b;
-  border: 1px solid #27272a;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
   border-radius: 8px;
-  color: #fff;
+  color: var(--input-text);
   font-size: 15px;
   outline: none;
+  transition: all 0.3s ease;
 }
 
 .shipping-form input:focus {
   border-color: #f97316;
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2);
 }
 
 .checkout-summary {
   margin-top: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--card-border);
   padding-top: 20px;
   text-align: right;
+  transition: border-color 0.3s ease;
 }
 
 .checkout-summary h4 {
