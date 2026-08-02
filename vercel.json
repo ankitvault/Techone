@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://techone-backend.onrender.com/api/:path*"
+      "destination": "https://techone-jt8d.onrender.com/api/:path*"
     }
   ]
 }
